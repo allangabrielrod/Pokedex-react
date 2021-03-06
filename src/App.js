@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import CardList from "./components/card-list/card-list.component";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.scss";
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      pokemons: [],
+    };
+  }
+
+  async componentDidMount() {
+    const pokemons = [];
+
+    for (let i = 1; i <= 150; i++) {
+      const pokeURL = `https://pokeapi.co/api/v2/pokemon/${i}`;
+
+      try {
+        const req = await fetch(pokeURL);
+        const pokeInfo = await req.json();
+
+        pokemons.push(pokeInfo);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    this.setState({ pokemons });
+  }
+
+  render() {
+    const { pokemons } = this.state;
+
+    return (
+      <div className="App">
+        <CardList pokemons={pokemons} />
+      </div>
+    );
+  }
 }
 
 export default App;
