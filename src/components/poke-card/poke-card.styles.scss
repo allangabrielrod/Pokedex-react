@@ -9,6 +9,10 @@
   transition: linear 0.1s;
   cursor: pointer;
 
+  .back {
+    font-weight: bold;
+  }
+  
   .poke-id {
     margin: 5px;
     color: grey;

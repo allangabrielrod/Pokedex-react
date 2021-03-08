@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: center;
 
+  .logo {
+    display: flex;
+  }
+
   .header-pokeball {
     width: 90px;
   }

@@ -1,7 +1,11 @@
 import { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+
 import Homepage from "./pages/homepage/homepage.component";
+import PokeProfile from "./pages/poke-profile/poke-profile.component";
 
 import Loading from "./components/loading/loading.component";
+import NotFound from "./components/notfound/not-found.component";
 import Header from "./components/header/header.component";
 
 import "./App.scss";
@@ -69,7 +73,20 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Homepage pokemons={pokemons} />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(props) => <Homepage {...props} pokemons={pokemons} />}
+          />
+          <Route
+            exact
+            path="/pokemon/:id"
+            render={(props) => <PokeProfile {...props} pokemons={pokemons} />}
+          />
+
+          <Route path="*" component={NotFound} />
+        </Switch>
       </div>
     );
   }

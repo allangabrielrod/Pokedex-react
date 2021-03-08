@@ -1,0 +1,154 @@
+.poke-profile {
+  margin: 30px 60px;
+
+  .back {
+    text-transform: uppercase;
+    background-color: #e6413d;
+    font-weight: bold;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+  }
+
+  .poke-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .poke-profile-image {
+      width: 400px;
+      margin: 30px;
+      padding: 0 50px;
+    }
+
+    .poke-profile-details {
+      margin: 30px;
+    }
+
+    .poke-name {
+      margin: 0;
+      color: #313d43;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .poke-id {
+      margin: 0;
+      color: grey;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .poke-attribute {
+      color: #313d43;
+    }
+
+    .poke-types,
+    .poke-habitat,
+    .poke-abilities {
+      display: flex;
+      flex-direction: row;
+
+      .poke-type,
+      .habitat-type,
+      .ability-type {
+        color: white;
+        margin: 0 5px 0;
+        padding: 10px 25px;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: black;
+        text-transform: capitalize;
+
+        &.steel {
+          background-color: #60756e;
+        }
+
+        &.fire {
+          background-color: #ab1f24;
+        }
+
+        &.grass {
+          background-color: #147b3d;
+        }
+
+        &.electric {
+          background-color: #e2e32b;
+        }
+
+        &.water {
+          background-color: #1552e1;
+        }
+
+        &.ice {
+          background-color: #86d2f5;
+        }
+
+        &.ground {
+          background-color: #a8702d;
+        }
+
+        &.rock {
+          background-color: #48190b;
+        }
+
+        &.fairy {
+          background-color: #961a45;
+        }
+
+        &.poison {
+          background-color: #5e2d89;
+        }
+
+        &.bug {
+          background-color: #1c4b27;
+        }
+
+        &.dragon {
+          background-color: #448a95;
+        }
+
+        &.psychic {
+          background-color: #a52a6c;
+        }
+
+        &.flying {
+          background-color: #4a677d;
+        }
+
+        &.fighting {
+          background-color: #994025;
+        }
+
+        &.cave {
+          background-color: #48190b;
+        }
+        &.forest {
+          background-color: #1c4b27;
+        }
+        &.grassland {
+          background-color: #147b3d;
+        }
+        &.mountain {
+          background-color: #a8702d;
+        }
+        &.rare {
+          background-color: #60756e;
+        }
+        &.rough-terrain {
+          background-color: #60756e;
+        }
+        &.sea {
+          background-color: #1552e1;
+        }
+        &.urban {
+          background-color: black;
+        }
+        &.waters-edge {
+          background-color: #86d2f5;
+        }
+      }
+    }
+  }
+}
