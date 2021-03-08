@@ -12,8 +12,10 @@ const PokeCard = ({ id, name, types }) => (
     </p>
     <h3 className="poke-card-name">{`${name}`}</h3>
     <span className="poke-types">
-      {types.map(({ type }) => (
-        <p className={`poke-type ${type.name}`}>{type.name}</p>
+      {types.map(({ type }, id) => (
+        <p key={id} className={`poke-type ${type.name}`}>
+          {type.name}
+        </p>
       ))}
     </span>
   </div>

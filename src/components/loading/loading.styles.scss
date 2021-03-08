@@ -1,0 +1,10 @@
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  .loading-pokeball {
+    width: 100px;
+    animation: logo-spin infinite 3s linear;
+  }
+}

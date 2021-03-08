@@ -1,0 +1,16 @@
+.not-found {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .not-found-pic {
+    width: 220px;
+    filter: grayscale(20%);
+  }
+
+  .not-found-text {
+    color: #333f44;
+    font-size: 3.3rem;
+  }
+}
