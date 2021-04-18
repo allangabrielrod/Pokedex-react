@@ -1,113 +1,33 @@
+import Select from "../select/select.component";
+import Option from "../option/option.component";
+
 import "./filter-bar.styles.scss";
 
-const FilterBar = ({ filterChange }) => (
+const FilterBar = ({ filterChange, habitats, types }) => (
   <nav className="filter-bar">
-    <div className="select">
-      <label htmlFor="type" className="select-label">
-        Tipo:
-      </label>
-      <select
-        name="type"
-        id="tipo-pokemon"
-        className="filter-select"
-        onChange={filterChange}
-      >
-        <option key="1" value="all" defaultValue>
-          Todos
-        </option>
-        <option key="2" value="normal">
-          Normal
-        </option>
-        <option key="3" value="steel">
-          Aço
-        </option>
-        <option key="4" value="fire">
-          Fogo
-        </option>
-        <option key="5" value="grass">
-          Grama
-        </option>
-        <option key="6" value="electric">
-          Elétrico
-        </option>
-        <option key="7" value="water">
-          Àgua
-        </option>
-        <option key="8" value="ice">
-          Gelo
-        </option>
-        <option key="9" value="ground">
-          Terra
-        </option>
-        <option key="10" value="rock">
-          Pedra
-        </option>
-        <option key="11" value="fairy">
-          Fada
-        </option>
-        <option key="12" value="poison">
-          Veneno
-        </option>
-        <option key="13" value="bug">
-          Inseto
-        </option>
-        <option key="14" value="dragon">
-          Dragão
-        </option>
-        <option key="15" value="psychic">
-          Psiquico
-        </option>
-        <option key="16" value="flying">
-          Voador
-        </option>
-        <option key="17" value="fighting">
-          Lutador
-        </option>
-      </select>
-    </div>
+    <Select
+      id="pokemon-type"
+      label="Type: "
+      name="type"
+      filterChange={filterChange}
+    >
+      <Option key="1" value="all" />
+      {types.map((type, id) => (
+        <Option key={id + 1} value={type} />
+      ))}
+    </Select>
 
-    <div className="select">
-      <label htmlFor="habitat" className="select-label">
-        Habitat:
-      </label>
-      <select
-        name="habitat"
-        id="habitat-pokemon"
-        className="filter-select"
-        onChange={filterChange}
-      >
-        <option key="1" value="all" defaultValue>
-          Todos
-        </option>
-        <option key="2" value="cave">
-          Caverna
-        </option>
-        <option key="3" value="forest">
-          Floresta
-        </option>
-        <option key="4" value="grassland">
-          Mato
-        </option>
-        <option key="5" value="mountain">
-          Motanha
-        </option>
-        <option key="6" value="rare">
-          Raro
-        </option>
-        <option key="7" value="rough-terrain">
-          Rough Terrain
-        </option>
-        <option key="8" value="sea">
-          Mar
-        </option>
-        <option key="9" value="urban">
-          Urbano
-        </option>
-        <option key="10" value="waters-edge">
-          Água
-        </option>
-      </select>
-    </div>
+    <Select
+      id="pokemon-habitat"
+      label="Habitat: "
+      name="habitat"
+      filterChange={filterChange}
+    >
+      <Option key="1" value="all" />
+      {habitats.map(({ id, name }) => (
+        <Option key={id + 1} value={name} />
+      ))}
+    </Select>
   </nav>
 );
 

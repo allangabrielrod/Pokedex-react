@@ -16,15 +16,14 @@ const PokeProfile = ({ match, pokemons }) => {
   return (
     <section className="poke-profile">
       <Link className="back" to="/">
-        {" "}
-        {`< Voltar`}{" "}
+        &#10096;
       </Link>
 
       <div className="poke-info">
         <img
           className="poke-profile-image"
           src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
-          alt="pokemon-image"
+          alt={`[${pokemon.name}]`}
         />
         <div className="poke-profile-details">
           <h1 className="poke-name">{pokemon.name}</h1>

@@ -52,9 +52,14 @@ class Homepage extends Component {
   };
 
   render() {
+    const { habitats, types } = this.props;
     return (
       <div className="homepage">
-        <FilterBar filterChange={this.handleOption} />
+        <FilterBar
+          filterChange={this.handleOption}
+          habitats={habitats}
+          types={types}
+        />
         <CardList pokemons={this.filterPokemons()} />
       </div>
     );

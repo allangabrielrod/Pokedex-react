@@ -17,6 +17,7 @@ class App extends Component {
     this.state = {
       pokemons: [],
       pokeHabitats: [],
+      pokeTypes: [],
       ready: false,
     };
   }
@@ -24,6 +25,7 @@ class App extends Component {
   async componentDidMount() {
     const pokemons = [];
     const pokeHabitats = [];
+    const pokeTypes = [];
 
     //request all habitats available
     for (let i = 1; i <= 9; i++) {
@@ -55,6 +57,10 @@ class App extends Component {
           if (checkHab) pokeInfo.habitat = pokeHabitat.name;
         });
 
+        pokeInfo.types.forEach(({ type: { name } }) => {
+          if (!pokeTypes.includes(name)) pokeTypes.push(name);
+        });
+
         pokemons.push(pokeInfo);
       } catch (e) {
         console.error(e);
@@ -62,11 +68,11 @@ class App extends Component {
       }
     }
 
-    this.setState({ pokemons, pokeHabitats, ready: true });
+    this.setState({ pokemons, pokeHabitats, pokeTypes, ready: true });
   }
 
   render() {
-    const { pokemons, ready } = this.state;
+    const { pokemons, pokeHabitats, pokeTypes, ready } = this.state;
 
     if (!ready) return <Loading />;
 
@@ -77,7 +83,14 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={(props) => <Homepage {...props} pokemons={pokemons} />}
+            render={(props) => (
+              <Homepage
+                {...props}
+                pokemons={pokemons}
+                habitats={pokeHabitats}
+                types={pokeTypes}
+              />
+            )}
           />
           <Route
             exact
